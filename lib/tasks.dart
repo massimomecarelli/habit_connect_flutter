@@ -32,10 +32,10 @@ class _TasksState extends State<Tasks> {
   final _controller1 = TextEditingController();
   final _controller2 = TextEditingController();
 
-  // è stato cliccato l'elemento
+  // è stato cliccato l'elemento, passa l'indice per prenderlo nella lista
   void goalChanged(int index) {
     log("dentro tap");
-    setState(() {
+    setState(() { // se obiettivo non a zero, lo decrementa
       if (db.tasksList[index][1] > 0)
         db.tasksList[index][1] --;
       if (db.tasksList[index][1] == 0)
@@ -76,7 +76,7 @@ class _TasksState extends State<Tasks> {
     );
   }
 
-  // delete task
+  // elimina il task che corrisponde all'indice nella box che viene passato
   void deleteTask(int index) {
     setState(() {
       db.tasksList.removeAt(index);

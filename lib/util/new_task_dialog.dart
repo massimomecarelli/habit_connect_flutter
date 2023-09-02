@@ -12,8 +12,8 @@ class NewTaskDialog extends StatelessWidget {
 
   NewTaskDialog({
     super.key,
-    required this.controller1,
-    required this.controller2,
+    required this.controller1, // controller che recupera i dati inseriti in input nel field di testo
+    required this.controller2, // controller che recupera i dati inseriti in input nel field dell'obiettivo
     required this.onSave,
   });
 
