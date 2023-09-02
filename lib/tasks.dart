@@ -83,14 +83,14 @@ class _TasksState extends State<Tasks> {
     });
     db.updateDataBase();
     ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text('Task dismissed')));
+        .showSnackBar(SnackBar(content: Text('Task deleted')));
 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         backgroundColor: Colors.blue[400],
         title: const Text('Tasks'),
@@ -158,6 +158,8 @@ class _TasksState extends State<Tasks> {
                     borderRadius: BorderRadius.circular(12),
                     ),
                   child: ListTile(
+                    // icona, proprietà del testo e background, cambiano a seconda
+                    // se il task è completato o meno
                     leading: Icon(db.tasksList[index][2]
                       ? Icons.check
                       : Icons.bookmark,
@@ -173,6 +175,7 @@ class _TasksState extends State<Tasks> {
                         : TextDecoration.none,
                       ),
                     ),
+                    // in fondo metto il counter dell'obiettivo
                     trailing: Text(
                       db.tasksList[index][1].toString(),
                       style: TextStyle(

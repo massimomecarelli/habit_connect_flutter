@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  final String text;
-  VoidCallback onPressed;
-  MyButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-  });
+  final Function()? onTap;
+
+  const MyButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          shape: StadiumBorder(),
-          backgroundColor: Colors.lightBlue
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(22),
+        margin: const EdgeInsets.symmetric(horizontal: 22),
+        decoration: BoxDecoration(
+          color: Colors.lightBlue,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Center(
+          child: Text(
+            "Sign In",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+        ),
       ),
-      onPressed: onPressed,
-      child: Text(text, style: TextStyle(color: Colors.white)),
     );
   }
 }

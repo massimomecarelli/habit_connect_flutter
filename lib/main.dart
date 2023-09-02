@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_connect_flutter/login_page.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'tasks.dart';
@@ -51,7 +52,8 @@ class BottomNavBar extends StatelessWidget {
     List<Widget> _buildScreens() {
       return [
         Tasks(),
-        Community(),
+       // Community(),
+        LoginPage(),
       ];
     }
     List<PersistentBottomNavBarItem> _navBarsItems() {
