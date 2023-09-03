@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "421817940854",
+    "firebase_url": "https://habitconnect-e8fca-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "habitconnect-e8fca",
+    "storage_bucket": "habitconnect-e8fca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421817940854:android:d04d7b9335d89ab169d857",
+        "android_client_info": {
+          "package_name": "com.example.habit_connect_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421817940854-ndkeh648n1m0nucr48j3hdb7ojgp9qns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04zfDjFNzDAIYmi1XELwNu5p4v5aY1N4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421817940854-ndkeh648n1m0nucr48j3hdb7ojgp9qns.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "421817940854-er27gme4df9305t4bq653jla03bg5pe1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.habitConnectFlutter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421817940854:android:6ba60a9518ea3bbe69d857",
+        "android_client_info": {
+          "package_name": "com.example.habitconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421817940854-ndkeh648n1m0nucr48j3hdb7ojgp9qns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04zfDjFNzDAIYmi1XELwNu5p4v5aY1N4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421817940854-ndkeh648n1m0nucr48j3hdb7ojgp9qns.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "421817940854-er27gme4df9305t4bq653jla03bg5pe1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.habitConnectFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

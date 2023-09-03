@@ -5,6 +5,9 @@ import 'package:hive_flutter/adapters.dart';
 import 'tasks.dart';
 import 'community.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'util/auth_page.dart';
 
 
 /* nel main apriamo la box di hive così nelle altre classi dobbiamo solo
@@ -12,6 +15,10 @@ chiamarla con box e non riaprirla con openBox
  */
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // init the hive
   await Hive.initFlutter();
   // open a box
@@ -32,11 +39,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      //  initialRoute: '/',
-      //  routes: {
-      //    '/': (context) => const Tasks(),
-      //    '/community': (context) => Community(),
-      //   },
       debugShowCheckedModeBanner: false,
       home: BottomNavBar(),
     );
@@ -48,14 +50,15 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+// lista di widget che rappresentano le schermate, da assegnare poi agli item della bottom nav bar
     List<Widget> _buildScreens() {
       return [
         Tasks(),
        // Community(),
-        LoginPage(),
+        AuthPage(), // pagina che smista l'accesso a seconda se l'utente è loggato oppure no
       ];
     }
+    // bottom nav bar persistente
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         PersistentBottomNavBarItem(
@@ -65,14 +68,14 @@ class BottomNavBar extends StatelessWidget {
           inactiveColorPrimary: Colors.blueGrey,
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(Icons.settings),
-          title: ("Home"),
+          icon: Icon(Icons.chat),
+          title: ("Community"),
           activeColorPrimary: Colors.blue,
           inactiveColorPrimary: Colors.blueGrey,
         ),
       ];
     }
-    // aggiungo uno screen controller
+    // aggiungo uno screen controller persistente come la bottom nav bar
     PersistentTabController _controller;
 
     _controller = PersistentTabController(initialIndex: 0);
