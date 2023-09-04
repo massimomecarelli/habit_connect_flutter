@@ -30,7 +30,7 @@ class NewTaskDialog extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: Colors.lightBlue),
             ),
             // get user input
-          Padding(padding: EdgeInsets.symmetric(horizontal: 10),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               controller: controller1,
               decoration: const InputDecoration(
@@ -39,7 +39,7 @@ class NewTaskDialog extends StatelessWidget {
               ),
             ),
     ),
-          Padding(padding: EdgeInsets.symmetric(horizontal: 10),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               controller: controller2,
               decoration: const InputDecoration(
@@ -56,21 +56,23 @@ class NewTaskDialog extends StatelessWidget {
               children: [
                 FloatingActionButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  shape: StadiumBorder(),
+                  shape: const StadiumBorder(),
                   backgroundColor: Colors.lightBlue,
+                  elevation: 0,
                   child:
-                  Icon(Icons.close, color: Colors.white,),
+                  const Icon(Icons.close, color: Colors.white,),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 //MyButton(text: "Save", onPressed: onSave),
                 FloatingActionButton(
-                  shape: StadiumBorder(),
+                  shape: const StadiumBorder(),
                   onPressed: onSave,
                   backgroundColor: Colors.lightBlue,
+                  elevation: 0,
                   child:
-                    Icon(Icons.check, color: Colors.white,),
+                    const Icon(Icons.check, color: Colors.white,),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
               ]
             ),
           ],

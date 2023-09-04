@@ -102,6 +102,7 @@ class _TasksState extends State<Tasks> {
             "ADD TASK",
             style: TextStyle(color: Colors.white)
         ),
+        elevation: 4,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100)
         ),

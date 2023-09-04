@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_connect_flutter/login_page.dart';
 import 'package:habit_connect_flutter/register_page.dart';
 
-
+// pagina chiamata quando si preme sul pulsante community, gestisce lo switch tra pagine di sign in e sign up
 class SigninOrSignupPage extends StatefulWidget {
   const SigninOrSignupPage({super.key});
 
