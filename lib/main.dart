@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_connect_flutter/login_page.dart';
+import 'package:habit_connect_flutter/tutorial.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'tasks.dart';
@@ -53,6 +54,7 @@ class BottomNavBar extends StatelessWidget {
 // lista di widget che rappresentano le schermate, da assegnare poi agli item della bottom nav bar
     List<Widget> _buildScreens() {
       return [
+        Tutorial(),
         Tasks(),
        // Community(),
         AuthPage(), // pagina che smista l'accesso a seconda se l'utente è loggato oppure no
@@ -61,6 +63,12 @@ class BottomNavBar extends StatelessWidget {
     // bottom nav bar persistente
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
+        PersistentBottomNavBarItem(
+          icon: Icon(Icons.question_mark),
+          title: ("Tutorial"),
+          activeColorPrimary: Colors.blue,
+          inactiveColorPrimary: Colors.blueGrey,
+        ),
         PersistentBottomNavBarItem(
           icon: Icon(Icons.home),
           title: ("Home"),
