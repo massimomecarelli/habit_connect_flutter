@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_connect_flutter/community.dart';
 import 'package:habit_connect_flutter/login_page.dart';
+import 'package:habit_connect_flutter/signin_or_signup_page.dart';
 
 
 // classe che controlla se l'utente ha fatto l'accesso, per mostrare la pagina di
@@ -22,7 +23,7 @@ class AuthPage extends StatelessWidget {
           }
           // user IS NOT logged in
           else {
-            return LoginPage();
+            return SigninOrSignupPage();
           }
         },
       ),

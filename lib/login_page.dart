@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../util/custom_button.dart';
-import 'package:habit_connect_flutter/util/my_textfield.dart';
 import '../util/square_tile.dart';
 import 'dart:developer';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  final Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   @override
   State<StatefulWidget> createState() => _LoginPageState();
@@ -135,6 +135,7 @@ class LoginPage extends StatefulWidget {
 
               // sign in button
               MyButton(
+                testo: 'Sign In',
                 onTap: signUserIn, // assegno al tap il metodo implementato sopra
               ),
 
@@ -148,11 +149,14 @@ class LoginPage extends StatefulWidget {
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
-                    const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: Colors.blueAccent,
-                        fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: widget.onTap,
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     ],
