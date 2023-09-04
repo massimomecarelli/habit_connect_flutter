@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../util/custom_button.dart';
 import 'package:habit_connect_flutter/util/my_textfield.dart';
@@ -27,11 +28,43 @@ class LoginPage extends StatefulWidget {
 
   // metodo che implementa l'accesso
   void signUserIn() async {
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-    );
+    // se le credenziali sono errate, fa il catch dell'errore inviato da Fierabse
+    try { // prova a fare il login
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      // email errata
+      if (e.code == 'user-not-found') {
+        showDialog(
+            context: context,
+            builder: (context){
+              return const CupertinoAlertDialog(title: Text('Email errata'),
+              );
+            },
+        );
+      }
+      // password errata
+      else if (e.code == 'wrong-password') {
+        showCupertinoModalPopup(
+          context: context,
+          builder: (context){
+            return const CupertinoAlertDialog(title: Text('Password errata'),
+            );
+          },
+        );
+      } else { // gestisce il caso di email scritta in un formato errato
+        showCupertinoModalPopup(
+            context: context,
+            builder: (context) {
+              return const CupertinoAlertDialog(
+                title: Text('Email errata'),
+              );
+            },
+        );
+      }
+    }
   }
 
   @override
@@ -87,7 +120,7 @@ class LoginPage extends StatefulWidget {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white70),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.lightBlue),
                     ),
                     fillColor: Colors.grey.shade100,
