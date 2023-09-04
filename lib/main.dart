@@ -86,7 +86,7 @@ class BottomNavBar extends StatelessWidget {
     // aggiungo uno screen controller persistente come la bottom nav bar
     PersistentTabController _controller;
 
-    _controller = PersistentTabController(initialIndex: 0);
+    _controller = PersistentTabController(initialIndex: 1);
 
     return PersistentTabView(
       context,

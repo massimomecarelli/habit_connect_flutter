@@ -79,6 +79,11 @@ class _CommunityState extends State<Community> {
       body: Center(
           child: Column(
             children: [
+              // apre uno stream builder che prende gli snapshots da firestore e
+              // estrae dai sui dati un documento alla volta, che poi viene mappato
+              // nei paramentri di Comment
+              // lo stream sta sempre in ascolto sui dati, è in ascolto su
+              // collectionReference che è il riferimento alla collection commenti
               Expanded(child: StreamBuilder(
                 stream: collectionReference
                     .orderBy("timestamp", descending: true,)
@@ -98,7 +103,7 @@ class _CommunityState extends State<Community> {
                     );
                   }
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(), // progressbar durante il caricamento
                   );
                 },
               ))
