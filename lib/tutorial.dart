@@ -35,14 +35,14 @@ class _TutorialState extends State<Tutorial> {
                 itemCount: imagePaths.length,
                 itemBuilder: (context, index, realIndex) {
                   final urlImage = imagePaths[index];
-                  return buildImage(urlImage, index);
+                  return buildImage(urlImage, index); //widget container con dentro un'immagine
                 },
                 options: CarouselOptions(
                     height: 610,
                     autoPlay: false,
                     enableInfiniteScroll: false,
                     enlargeCenterPage: true,
-                    onPageChanged: (index, reason) =>
+                    onPageChanged: (index, reason) => //modifica l'indice corrente
                         setState(() => activeIndex = index))
             ),
             SizedBox(height: 10),

@@ -40,10 +40,10 @@ class _CommunityState extends State<Community> {
 
   void saveNewComment() {
     setState(() {
-      if (_controller.text.isEmpty){
+      if (_controller.text.isEmpty){ //controlla se il testo è vuoto
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("Inserisci del testo")));
-      } else {
+      } else { // mappa i dati di input in un hash map
         Map <String, dynamic> mapping = {
           "testo": _controller.text,
           "user": user.email,

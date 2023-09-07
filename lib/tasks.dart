@@ -21,7 +21,7 @@ class _TasksState extends State<Tasks> {
 
   @override
   void initState() {
-    // if this is the 1st time ever openin the app, then create default data
+    // controlla se ci sono dati
     if (_myBox.get("TASKSLIST") != null) {
       db.loadData();
     }
