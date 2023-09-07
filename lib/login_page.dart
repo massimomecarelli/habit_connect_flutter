@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../util/custom_button.dart';
-import '../util/square_tile.dart';
 import 'dart:developer';
 
 class LoginPage extends StatefulWidget {
